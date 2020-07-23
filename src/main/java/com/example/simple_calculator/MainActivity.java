@@ -18,7 +18,7 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
     Button button0, button1, button2, button3, button4, button5, button6, button7, button8, button9, button10,
-    buttonAdd, buttonSub, buttonDivision,  buttonMul, buttonC, buttonEqual, buttonSci, buttonCol;
+    buttonAdd, buttonSub, buttonDivision,  buttonMul, buttonC, buttonEqual, buttonSci, buttonCol, buttonRst;
 
     ConstraintLayout layout;
 
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        //Initializing the buttons to their respective IDs from activity_main.xml
         button0 = (Button) findViewById(R.id.b0);
         button1 = (Button) findViewById(R.id.b1);
         button2 = (Button) findViewById(R.id.b2);
@@ -55,8 +55,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         //additions to simple calc
-        buttonSci = (Button) findViewById(R.id.Sci);
+        buttonSci = (Button) findViewById(R.id.sci);
         buttonCol = (Button) findViewById(R.id.Col);
+        buttonRst = (Button) findViewById(R.id.Rst);
         layout = findViewById(R.id.layout);
 
 
@@ -226,6 +227,13 @@ public class MainActivity extends AppCompatActivity {
                 layout.setBackgroundColor(colour);
             }
 
+        });
+
+        buttonRst.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                layout.setBackgroundColor(0);
+            }
         });
 
 
