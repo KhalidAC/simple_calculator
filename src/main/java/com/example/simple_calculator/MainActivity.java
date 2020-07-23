@@ -2,18 +2,25 @@ package com.example.simple_calculator;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.widget.Button;
 import android.view.View;
 import android.widget.TextView;
+import android.content.Intent;
+
+import java.util.Random;
 
 //Khalid Aboulchaar 0300014043
 
 public class MainActivity extends AppCompatActivity {
     Button button0, button1, button2, button3, button4, button5, button6, button7, button8, button9, button10,
-    buttonAdd, buttonSub, buttonDivision,  buttonMul, buttonC, buttonEqual;
+    buttonAdd, buttonSub, buttonDivision,  buttonMul, buttonC, buttonEqual, buttonSci, buttonCol;
+
+    ConstraintLayout layout;
 
     TextView edttxt;
 
@@ -46,9 +53,16 @@ public class MainActivity extends AppCompatActivity {
         buttonC = (Button) findViewById(R.id.clr);
         button10 = (Button) findViewById(R.id.prd); // decimal button
 
+
+        //additions to simple calc
+        buttonSci = (Button) findViewById(R.id.Sci);
+        buttonCol = (Button) findViewById(R.id.Col);
+        layout = findViewById(R.id.layout);
+
+
         edttxt = (TextView) findViewById(R.id.screen);
 
-        // adding the  click button
+        // adding the  onclick buttons
         button0.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -195,11 +209,37 @@ public class MainActivity extends AppCompatActivity {
 
             }});
 
+        buttonSci.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openSciCalc();
+            }
+
+        });
+
+        //button to change the background of the application to a randomly generated colour.
+        buttonCol.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Random random = new Random();
+                int colour = Color.argb(255,random.nextInt(256),random.nextInt(256),random.nextInt(256));
+                layout.setBackgroundColor(colour);
+            }
+
+        });
+
+
+
+
+
 
 
             }
 
-
+        public void openSciCalc(){
+        Intent intent = new Intent(this, ScienceCalc.class);
+        startActivity(intent);
+        }
 
 
 
