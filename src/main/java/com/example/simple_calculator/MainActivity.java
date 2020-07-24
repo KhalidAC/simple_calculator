@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     ConstraintLayout layout;
 
-    TextView edttxt;
+    TextView edttxt,screen2;
 
     boolean adding, subtracting, divising, multiplying; // these variables will help when pressing the equals button to compute the calc.
 
@@ -62,78 +62,91 @@ public class MainActivity extends AppCompatActivity {
 
 
         edttxt = (TextView) findViewById(R.id.screen);
+        screen2 = (TextView) findViewById(R.id.screen2);
 
         // adding the  onclick buttons
         button0.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 edttxt.setText(edttxt.getText() + "0");
+                screen2.setText(screen2.getText() + "0");
             }});
 
         button1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 edttxt.setText(edttxt.getText() + "1");
+                screen2.setText(screen2.getText() + "1");
             }});
 
         button2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 edttxt.setText(edttxt.getText() + "2");
+                screen2.setText(screen2.getText() + "2");
             }});
 
         button3.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 edttxt.setText(edttxt.getText() + "3");
+                screen2.setText(screen2.getText() + "3");
             }});
 
         button4.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 edttxt.setText(edttxt.getText() + "4");
+                screen2.setText(screen2.getText() + "4");
             }});
 
         button5.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 edttxt.setText(edttxt.getText() + "5");
+                screen2.setText(screen2.getText() + "5");
             }});
 
         button6.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 edttxt.setText(edttxt.getText() + "6");
+                screen2.setText(screen2.getText() + "6");
             }});
 
         button7.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 edttxt.setText(edttxt.getText() + "7");
+                screen2.setText(screen2.getText() + "7");
             }});
 
         button8.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 edttxt.setText(edttxt.getText() + "8");
+                screen2.setText(screen2.getText() + "8");
             }});
 
         button9.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 edttxt.setText(edttxt.getText() + "9");
+                screen2.setText(screen2.getText() + "9");
             }});
 
         button10.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 edttxt.setText(edttxt.getText() + ".");
+                screen2.setText(screen2.getText() + ".");
             }});
 
         buttonC.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 edttxt.setText(""); // button to clear the Textview
+                screen2.setText("");
             }});
 
         //Operations onCLick methods
@@ -141,8 +154,10 @@ public class MainActivity extends AppCompatActivity {
         buttonAdd.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if (edttxt == null){
+                screen2.setText(screen2.getText() + "+");
+                if (edttxt == null && screen2 == null){
                     edttxt.setText("");
+                    screen2.setText("");
                 }else{
                     num_one = Float.parseFloat(edttxt.getText()+ "");
                     adding = true;
@@ -153,8 +168,10 @@ public class MainActivity extends AppCompatActivity {
         buttonSub.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if (edttxt == null){
+                screen2.setText(screen2.getText() + "-");
+                if (edttxt == null && screen2 == null){
                     edttxt.setText("");
+                    screen2.setText("");
                 }else{
                     num_one = Float.parseFloat(edttxt.getText()+ "");
                     subtracting = true;
@@ -165,8 +182,10 @@ public class MainActivity extends AppCompatActivity {
         buttonDivision.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if (edttxt == null){
+                screen2.setText(screen2.getText() + "/");
+                if (edttxt == null && screen2 == null){
                     edttxt.setText("");
+                    screen2.setText("");
                 }else{
                     num_one = Float.parseFloat(edttxt.getText()+ "");
                     divising = true;
@@ -177,8 +196,10 @@ public class MainActivity extends AppCompatActivity {
         buttonMul.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if (edttxt == null){
+                screen2.setText(screen2.getText() + "*");
+                if (edttxt == null && screen2 == null){
                     edttxt.setText("");
+                    screen2.setText("");
                 }else{
                     num_one = Float.parseFloat(edttxt.getText()+ "");
                     multiplying = true;
@@ -235,8 +256,6 @@ public class MainActivity extends AppCompatActivity {
                 layout.setBackgroundColor(0);
             }
         });
-
-
 
 
 

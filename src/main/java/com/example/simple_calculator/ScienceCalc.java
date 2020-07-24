@@ -20,7 +20,7 @@ public class ScienceCalc extends AppCompatActivity {
 
     ConstraintLayout layout;
 
-    TextView edttxt;
+    TextView edttxt, screen2;
 
     boolean adding, subtracting, divising, multiplying; // these variables will help when pressing the equals button to compute the calc.
 
@@ -63,78 +63,91 @@ public class ScienceCalc extends AppCompatActivity {
 
 
         edttxt = (TextView) findViewById(R.id.screen);
+        screen2= (TextView) findViewById(R.id.screen2);
 
         // adding the  onclick buttons
         button0.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 edttxt.setText(edttxt.getText() + "0");
+                screen2.setText(screen2.getText() + "0");
             }});
 
         button1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 edttxt.setText(edttxt.getText() + "1");
+                screen2.setText(screen2.getText() + "1");
             }});
 
         button2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 edttxt.setText(edttxt.getText() + "2");
+                screen2.setText(screen2.getText() + "2");
             }});
 
         button3.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 edttxt.setText(edttxt.getText() + "3");
+                screen2.setText(screen2.getText() + "3");
             }});
 
         button4.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 edttxt.setText(edttxt.getText() + "4");
+                screen2.setText(screen2.getText() + "4");
             }});
 
         button5.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 edttxt.setText(edttxt.getText() + "5");
+                screen2.setText(screen2.getText() + "5");
             }});
 
         button6.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 edttxt.setText(edttxt.getText() + "6");
+                screen2.setText(screen2.getText() + "6");
             }});
 
         button7.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 edttxt.setText(edttxt.getText() + "7");
+                screen2.setText(screen2.getText() + "7");
             }});
 
         button8.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 edttxt.setText(edttxt.getText() + "8");
+                screen2.setText(screen2.getText() + "8");
             }});
 
         button9.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 edttxt.setText(edttxt.getText() + "9");
+                screen2.setText(screen2.getText() + "9");
             }});
 
         button10.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 edttxt.setText(edttxt.getText() + ".");
+                screen2.setText(screen2.getText() + ".");
             }});
 
         buttonC.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 edttxt.setText(""); // button to clear the Textview
+                screen2.setText("");
             }});
 
         //Operations onCLick methods
@@ -142,6 +155,7 @@ public class ScienceCalc extends AppCompatActivity {
         buttonAdd.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                screen2.setText(screen2.getText() + "+");
                 if (edttxt == null){
                     edttxt.setText("");
                 }else{
@@ -154,6 +168,7 @@ public class ScienceCalc extends AppCompatActivity {
         buttonSub.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                screen2.setText(screen2.getText() + "-");
                 if (edttxt == null){
                     edttxt.setText("");
                 }else{
@@ -166,6 +181,7 @@ public class ScienceCalc extends AppCompatActivity {
         buttonDivision.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                screen2.setText(screen2.getText() + "/");
                 if (edttxt == null){
                     edttxt.setText("");
                 }else{
@@ -178,6 +194,7 @@ public class ScienceCalc extends AppCompatActivity {
         buttonMul.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                screen2.setText(screen2.getText() + "*");
                 if (edttxt == null){
                     edttxt.setText("");
                 }else{
@@ -217,6 +234,7 @@ public class ScienceCalc extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 numberOne = Double.parseDouble(edttxt.getText()+"");
+                screen2.setText(screen2.getText() + "log (" + numberOne + ")");
                 if(edttxt == null){
                     edttxt.setText("");
                 }
@@ -236,6 +254,7 @@ public class ScienceCalc extends AppCompatActivity {
         buttonRoot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                screen2.setText(screen2.getText() + "sqrt(" + numberOne + ")");
                 numberOne = Double.parseDouble(edttxt.getText()+"");
                 if(edttxt == null){
                     edttxt.setText("");
@@ -253,6 +272,7 @@ public class ScienceCalc extends AppCompatActivity {
         buttonSqr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 num_one = Float.parseFloat(edttxt.getText()+ "");
                 numberOne = Double.parseDouble(edttxt.getText()+"");
                 if(edttxt == null){
@@ -291,6 +311,7 @@ public class ScienceCalc extends AppCompatActivity {
 
 
     }
+    //method that starts the Main activity to return to the basic calculator
     public void openBasic(){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
