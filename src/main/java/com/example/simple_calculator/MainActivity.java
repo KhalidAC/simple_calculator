@@ -14,7 +14,13 @@ import android.content.Intent;
 
 import java.util.Random;
 
-//Khalid Aboulchaar 0300014043
+/* Author: Khalid Aboulchaar
+
+This class is designed as a Basic Calculator with some added buttons/functionality
+basic arithmetic can be completed in this class.
+
+GNU License
+*/
 
 public class MainActivity extends AppCompatActivity {
     Button button0, button1, button2, button3, button4, button5, button6, button7, button8, button9, button10,
@@ -55,14 +61,14 @@ public class MainActivity extends AppCompatActivity {
 
 
         //additions to simple calc
-        buttonSci = (Button) findViewById(R.id.sci);
-        buttonCol = (Button) findViewById(R.id.Col);
-        buttonRst = (Button) findViewById(R.id.Rst);
+        buttonSci = (Button) findViewById(R.id.sci); // button for Scientific Calculator
+        buttonCol = (Button) findViewById(R.id.Col); // a colour button
+        buttonRst = (Button) findViewById(R.id.Rst); // a reset button
         layout = findViewById(R.id.layout);
 
 
-        edttxt = (TextView) findViewById(R.id.screen);
-        screen2 = (TextView) findViewById(R.id.screen2);
+        edttxt = (TextView) findViewById(R.id.screen); // main display to show keypresses
+        screen2 = (TextView) findViewById(R.id.screen2); // secondary display to show previously pressed buttons
 
         // adding the  onclick buttons
         button0.setOnClickListener(new View.OnClickListener(){
@@ -134,14 +140,14 @@ public class MainActivity extends AppCompatActivity {
                 edttxt.setText(edttxt.getText() + "9");
                 screen2.setText(screen2.getText() + "9");
             }});
-
+        //button10 corresponds to the decimal and not a number
         button10.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 edttxt.setText(edttxt.getText() + ".");
                 screen2.setText(screen2.getText() + ".");
             }});
-
+        //buttonC is the clear button
         buttonC.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -230,7 +236,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
             }});
-
+        // button to switch to the Scientific Calculator
         buttonSci.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -249,7 +255,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
-
+        //returns the background of the activity to default
         buttonRst.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -262,7 +268,7 @@ public class MainActivity extends AppCompatActivity {
 
 
             }
-
+        //function which creates an Intent to change activities, called when buttonSci is pressed.
         public void openSciCalc(){
         Intent intent = new Intent(this, ScienceCalc.class);
         startActivity(intent);

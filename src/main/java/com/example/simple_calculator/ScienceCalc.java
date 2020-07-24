@@ -14,18 +14,26 @@ import android.content.Intent;
 
 import java.util.Random;
 
+/* Author: Khalid Aboulchaar
+
+This class is designed as a Scientific Calculator with some added buttons/functionality
+Basic arithmetic can be completed in this class as well as some more sophisticated functions.
+
+GNU License
+*/
+
 public class ScienceCalc extends AppCompatActivity {
     Button button0, button1, button2, button3, button4, button5, button6, button7, button8, button9, button10,
             buttonAdd, buttonSub, buttonDivision,  buttonMul, buttonC, buttonEqual, buttonBsc, buttonCol, buttonRst, buttonLog, buttonSqr,buttonRoot;
 
-    ConstraintLayout layout;
+    ConstraintLayout layout; // this variable will help in changing the background colour
 
     TextView edttxt, screen2;
 
     boolean adding, subtracting, divising, multiplying; // these variables will help when pressing the equals button to compute the calc.
 
     float num_one, num_two; // float numbers will store the values being operated.
-    double numberOne;
+    double numberOne; // this double was created to run functions from the Math library
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,9 +61,9 @@ public class ScienceCalc extends AppCompatActivity {
 
 
         //additions to simple calc
-        buttonBsc = (Button) findViewById(R.id.Basic);
-        buttonCol = (Button) findViewById(R.id.Col);
-        buttonRst = (Button) findViewById(R.id.Reset2);
+        buttonBsc = (Button) findViewById(R.id.Basic); // returns to Basic Calculator
+        buttonCol = (Button) findViewById(R.id.Col); // Colour Button
+        buttonRst = (Button) findViewById(R.id.Reset2); // Reset for colour
         buttonLog = (Button) findViewById(R.id.log);
         buttonSqr = (Button) findViewById(R.id.sqr);
         buttonRoot = (Button) findViewById(R.id.root);
@@ -301,7 +309,7 @@ public class ScienceCalc extends AppCompatActivity {
                 layout.setBackgroundColor(0);
             }
         });
-
+        // ButtonBsc is to return to the Basic Calculator activity
         buttonBsc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
