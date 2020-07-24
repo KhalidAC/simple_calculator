@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.TextView;
 import android.content.Intent;
 
+import java.util.Random;
+
 public class ScienceCalc extends AppCompatActivity {
     Button button0, button1, button2, button3, button4, button5, button6, button7, button8, button9, button10,
             buttonAdd, buttonSub, buttonDivision,  buttonMul, buttonC, buttonEqual, buttonBsc, buttonCol, buttonRst, buttonLog, buttonSqr,buttonRoot;
@@ -23,6 +25,7 @@ public class ScienceCalc extends AppCompatActivity {
     boolean adding, subtracting, divising, multiplying; // these variables will help when pressing the equals button to compute the calc.
 
     float num_one, num_two; // float numbers will store the values being operated.
+    double numberOne;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +55,7 @@ public class ScienceCalc extends AppCompatActivity {
         //additions to simple calc
         buttonBsc = (Button) findViewById(R.id.Basic);
         buttonCol = (Button) findViewById(R.id.Col);
-        buttonRst = (Button) findViewById(R.id.Rst);
+        buttonRst = (Button) findViewById(R.id.Reset2);
         buttonLog = (Button) findViewById(R.id.log);
         buttonSqr = (Button) findViewById(R.id.sqr);
         buttonRoot = (Button) findViewById(R.id.root);
@@ -208,7 +211,88 @@ public class ScienceCalc extends AppCompatActivity {
 
             }});
 
+        //new methods added Logarithm for base 10, Square root, and Square.
+
+        buttonLog.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                numberOne = Double.parseDouble(edttxt.getText()+"");
+                if(edttxt == null){
+                    edttxt.setText("");
+                }
+                else if(numberOne == 0){
+                    edttxt.setText("Does not Exist");
+                }
+                else if (numberOne < 0 ){
+                    edttxt.setText("Invalid Range");
+                }
+                else{
+                    edttxt.setText(Math.log10(numberOne) + "");
+                }
+
+            }
+        }) );
+        // calculates the square root of a double
+        buttonRoot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                numberOne = Double.parseDouble(edttxt.getText()+"");
+                if(edttxt == null){
+                    edttxt.setText("");
+                }
+                else if(numberOne < 0){
+                    edttxt.setText("Invalid range");
+                }
+                else{
+                    edttxt.setText(Math.sqrt(numberOne) + "");
+                }
+
+            }
+        });
+        // will calculate the square of a number
+        buttonSqr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                num_one = Float.parseFloat(edttxt.getText()+ "");
+                numberOne = Double.parseDouble(edttxt.getText()+"");
+                if(edttxt == null){
+                    edttxt.setText("");
+                }
+                else{
+                    edttxt.setText(num_one*num_one + "");
+                }
+            }
+        });
+
+        //button to change the background of the activity to a randomly generated colour.
+        buttonCol.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Random random = new Random();
+                int colour = Color.argb(255,random.nextInt(256),random.nextInt(256),random.nextInt(256));
+                layout.setBackgroundColor(colour);
+            }
+
+        });
+        // button Reset will set the colour of the background to white
+        buttonRst.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                layout.setBackgroundColor(0);
+            }
+        });
+
+        buttonBsc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openBasic();
+            }
+        });
 
 
+    }
+    public void openBasic(){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }
